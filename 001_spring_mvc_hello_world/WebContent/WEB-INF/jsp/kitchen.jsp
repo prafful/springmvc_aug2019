@@ -4,7 +4,8 @@
 	
 </head>
 <body>
-	Go to welcome file <a href="welcome.jsp">Click Here!!!!</a>
+	<h1>Hello</h1>
+	
 </body>
 
 </html>

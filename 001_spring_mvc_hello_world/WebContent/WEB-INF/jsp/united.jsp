@@ -4,7 +4,13 @@
 	
 </head>
 <body>
-	${message}
+	${message1}
+	<br>
+	${message2}
+	<br>
+	${message3}
+	<br>
+	
 	
 </body>
 

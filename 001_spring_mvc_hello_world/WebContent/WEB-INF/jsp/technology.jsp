@@ -4,7 +4,13 @@
 	
 </head>
 <body>
-	${message}
+	${topicName}
+	<br>
+	${duration} days
+	<br>
+	${message3}
+	<br>
+	
 	
 </body>
 
