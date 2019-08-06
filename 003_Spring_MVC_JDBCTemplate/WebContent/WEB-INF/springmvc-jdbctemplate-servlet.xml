@@ -36,8 +36,8 @@
         	<property name="dataSource" ref="dataSource"></property>
         </bean>
         
-        <bean id="daoClass" class="com.springmvc.jdbctemplate.UserDao">
-        	<property name="template" ref="jdbcTemplate"></property>
+        <bean id="employeeDao" class="com.springmvc.jdbctemplate.EmployeeDao">
+        	<!-- <property name="template" ref="jdbcTemplate"></property> -->
         </bean>
         
         
