@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 
@@ -41,6 +42,25 @@ public class EmployeeDao {
 			}
 		
 		});
+		
+	}
+
+	public EmployeePojo getEmployeeById(int id) {
+		// TODO Auto-generated method stub
+		String sql = "select *  from employee where id=?"; 
+		return jdbcTemplate.queryForObject(sql, new Object[]{id}, new BeanPropertyRowMapper<EmployeePojo>(EmployeePojo.class));
+	}
+
+
+	public int updateEmployee(EmployeePojo employee) {
+		// TODO Auto-generated method stub
+		System.out.println("In DAO class for updating employee: " + employee.getId() + " " + employee.getName() + " " + employee.getSalary() + " " + employee.getDesignation());
+		//update employee set name='omana', salary=4000, designation='developer' where id=1
+		String sql = "update employee set name='"+employee.getName()+"',salary=" + employee.getSalary()+",designation='" + employee.getDesignation() + "' where id="+ employee.getId()+"";
+		System.out.println(sql);
+		int result = jdbcTemplate.update(sql);
+		System.out.println(result);
+		return result;
 		
 	}
 	

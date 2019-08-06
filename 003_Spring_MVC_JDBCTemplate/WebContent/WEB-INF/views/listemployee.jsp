@@ -14,7 +14,14 @@
 <br>
 
 <my:forEach var="employee" items="${allemployees}">
-		<p>${employee.id} - ${employee.name} at ${employee.designation} with ${employee.salary}
+
+		<my:url var="update" value="editEmployee.html">
+			<my:param name="id" value="${employee.id}"></my:param>
+		</my:url>
+		
+
+		<p>${employee.id} - <b>${employee.name}</b> at ${employee.designation} with USD.${employee.salary} 
+		<a href="${update}">Edit</a>
 </my:forEach>
 
 

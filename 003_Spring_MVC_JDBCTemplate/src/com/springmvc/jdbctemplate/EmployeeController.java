@@ -5,8 +5,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -39,5 +41,20 @@ public class EmployeeController {
 		
 	}
 	
+	@RequestMapping(value="editEmployee", method = RequestMethod.GET)
+	public ModelAndView editEmployee(@RequestParam("id") int id) {
+		System.out.println("Get employee with id: " + id);
+		EmployeePojo employeeEdit = employeeDao.getEmployeeById(id);
+		return new ModelAndView("updateemployee", "command", employeeEdit);
+		 
+	}
+	
+	
+	@RequestMapping(value = "updateEmployee", method = RequestMethod.POST)
+	public String updateEmployee(@ModelAttribute EmployeePojo employee) {
+		System.out.println("Updating employee with id: " + employee.getId());
+		employeeDao.updateEmployee(employee);
+		return "redirect:/listEmployee.html";
+	}
 	
 }
