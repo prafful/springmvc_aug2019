@@ -26,7 +26,7 @@ public class EmployeeController {
 	public String saveEmployee(@ModelAttribute("employee") EmployeePojo employeePojo) {
 		System.out.println(employeePojo.getName() + " " + employeePojo.getSalary() + " " + employeePojo.getDesignation());
 		int numberOfRowsEffected = employeeDao.saveEmployee(employeePojo);
-		return "redirect:/listEmployee.html";
+		return "redirect:/listEmployee";
 	}
 	
 	@RequestMapping(value = "/addEmployee", method = RequestMethod.GET)
@@ -54,7 +54,7 @@ public class EmployeeController {
 	public String updateEmployee(@ModelAttribute EmployeePojo employee) {
 		System.out.println("Updating employee with id: " + employee.getId());
 		employeeDao.updateEmployee(employee);
-		return "redirect:/listEmployee.html";
+		return "redirect:/listEmployee";
 	}
 	
 }

@@ -40,6 +40,22 @@
         	<!-- <property name="template" ref="jdbcTemplate"></property> -->
         </bean>
         
+        <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+        	<property name="basename"   value="/WEB-INF/message"> </property>
+        </bean>
+        
+        <mvc:interceptors>
+        	<mvc:interceptor>
+        		<mvc:mapping path="/index"/>
+        		<bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
+        			<property name="paramName" value="lang"></property>
+        		</bean>
+        	</mvc:interceptor>
+        
+        </mvc:interceptors>
+        
+        <bean id="localeResolver" class="org.springframework.web.servlet.i18n.CookieLocaleResolver">
+        </bean>
         
         
         
