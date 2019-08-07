@@ -18,7 +18,7 @@
 			<my:param name="lang" value="en"></my:param>
 	</my:url>
 	<my:url var="french" value="index">
-			<my:param name="lang" value="fr"></my:param>
+			<my:param name="lang" value="french"></my:param>
 	</my:url>
 		
 		
