@@ -2,10 +2,13 @@ package com.springmvc.jdbctemplate;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -23,15 +26,21 @@ public class EmployeeController {
 	}
 	
 	@RequestMapping(value = "/saveEmployee", method = RequestMethod.POST)
-	public String saveEmployee(@ModelAttribute("employee") EmployeePojo employeePojo) {
+	public String saveEmployee(@Valid @ModelAttribute("employee") EmployeePojo employeePojo, BindingResult result) {
 		System.out.println(employeePojo.getName() + " " + employeePojo.getSalary() + " " + employeePojo.getDesignation());
+		if(result.hasErrors()) {
+			System.out.println("Validation Errors....");
+			return "addemployee";
+		}
 		int numberOfRowsEffected = employeeDao.saveEmployee(employeePojo);
 		return "redirect:/listEmployee";
 	}
 	
 	@RequestMapping(value = "/addEmployee", method = RequestMethod.GET)
-	public ModelAndView addEmployee() {
-		return new ModelAndView("addemployee", "command", new EmployeePojo());
+	public String addEmployee(Model model) {
+		model.addAttribute("employee", new EmployeePojo());
+		//return new ModelAndView("addemployee", "employee", new EmployeePojo());
+		return "addemployee";
 	}
 	
 	@RequestMapping(value = "listEmployee", method = RequestMethod.GET )
@@ -45,7 +54,7 @@ public class EmployeeController {
 	public ModelAndView editEmployee(@RequestParam("id") int id) {
 		System.out.println("Get employee with id: " + id);
 		EmployeePojo employeeEdit = employeeDao.getEmployeeById(id);
-		return new ModelAndView("updateemployee", "command", employeeEdit);
+		return new ModelAndView("updateemployee", "employee", employeeEdit);
 		 
 	}
 	

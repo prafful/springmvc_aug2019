@@ -1,8 +1,17 @@
 package com.springmvc.jdbctemplate;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+
+import org.springframework.stereotype.Component;
+
+@Component
 public class EmployeePojo {
 	
 	private int id;
+	
+	@NotNull
+	@NotEmpty(message = "employee.name.validate")
 	private String name;
 	private float salary;
 	private String designation;

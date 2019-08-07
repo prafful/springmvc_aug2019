@@ -11,7 +11,7 @@
 <body>
 <h1>Edit Employee</h1>
 
-<form:form method="post" action="updateEmployee.html">
+<form:form method="post" action="updateEmployee.html" modelAttribute="employee">
 
 	Id: <form:hidden path="id"/>
 	<br>
