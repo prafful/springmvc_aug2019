@@ -28,6 +28,16 @@
 	<form:errors path="password" cssClass="errorClass"></form:errors>
 	<br>
 	<br>
+	Location:
+	<form:select path="location">
+		<form:option value="" label="Select...."></form:option>
+		<form:options items="${allLocations}"></form:options>
+	</form:select>
+	<form:errors path="location" cssClass="errorClass"></form:errors>
+
+	<br>
+	<br>
+	
 	<button type="submit">Validate Values</button>
 
 </form:form>

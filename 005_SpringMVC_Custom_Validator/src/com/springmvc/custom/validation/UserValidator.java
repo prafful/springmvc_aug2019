@@ -21,7 +21,7 @@ public class UserValidator implements Validator {
 		// TODO Auto-generated method stub
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "email", "error.email");
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "error.password");
-		
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "location", "error.location");
 	}
 	
 	

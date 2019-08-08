@@ -1,5 +1,8 @@
 package com.springmvc.custom.validation;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +39,19 @@ public class UserController {
 		}
 		
 		return "welcome";
+	}
+	
+	
+	
+	
+	@ModelAttribute("allLocations")
+	public List getLocation() {
+		List allLocations = new ArrayList();
+		allLocations.add("Chennai");
+		allLocations.add("Pune");
+		allLocations.add("Kochi");
+		
+		return allLocations;
 	}
 	
 
