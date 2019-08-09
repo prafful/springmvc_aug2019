@@ -3,14 +3,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <meta charset="ISO-8859-1">
-<title>Welcome</title>
+<title>View Employee</title>
 </head>
 <body>
-	
-	<h1>Welcome!!!!</h1>
-
+<h1> View Employee!</h1>
 </body>
 </html>
