@@ -56,7 +56,8 @@
         
         <tx:annotation-driven  transaction-manager="hibernateTransactionManager"  />
         
-        
+        <mvc:resources location="/resources/" mapping="/resources/**" cache-period="3600">
+        </mvc:resources>
         
 </beans>        
  
