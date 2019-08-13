@@ -2,17 +2,31 @@ package com.cts.memberservice.vo;
 
 import java.util.List;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
+
+import org.springframework.stereotype.Component;
+
+@Component
 public class Member {
 	
-	private Long memberid;
+	//@Size(min = 5, max = 8, message = "Size.memberform.memberid")
+	private int memberid;
+	
+	@NotEmpty
 	private String membername;
+	
+	
 	private String email;
+	
 	private List services;
+	
 	private String subscribe;
-	public Long getMemberid() {
+	
+	public int getMemberid() {
 		return memberid;
 	}
-	public void setMemberid(Long memberid) {
+	public void setMemberid(int memberid) {
 		this.memberid = memberid;
 	}
 	public String getMembername() {
@@ -39,7 +53,7 @@ public class Member {
 	public void setSubscribe(String subscribe) {
 		this.subscribe = subscribe;
 	}
-	public Member(Long memberid, String membername, String email, List services, String subscribe) {
+	public Member(int memberid, String membername, String email, List services, String subscribe) {
 		super();
 		this.memberid = memberid;
 		this.membername = membername;

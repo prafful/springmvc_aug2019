@@ -29,9 +29,13 @@
 		
 		<!-- <context:property-placeholder location="classpath:database.properties" /> -->
 		
-		<bean id="messageSource"
-				class="org.springframework.context.support.ReloadableResourceBundleMessageSource"></bean>
 				
-		<mvc:resources location="/resources/" mapping="/resources/**" cache-period="6000"></mvc:resources>		
+		<mvc:resources location="/resources/" mapping="/resources/**" cache-period="6000"></mvc:resources>
+		
+	     <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+        	<property name="basename"   value="/WEB-INF/message"> </property>
+        </bean>		
+        
+        <bean id="emailValidation" class="com.cts.memberservice.validation.EmailValidation"></bean>
         
      </beans>   

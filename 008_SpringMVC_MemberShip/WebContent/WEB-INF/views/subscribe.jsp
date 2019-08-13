@@ -28,9 +28,12 @@
 	<h3>Welcome to Subscribe</h3>
 	
 	<form:form action="subscribeServices" method="post" modelAttribute="memberform" id="myform">
-		Member ID: <form:input type="text" path="memberid" /><br>
-		Member Name: <form:input type="text" path="membername"/><br>
-					
+		Member ID: <form:input type="text" path="memberid" />
+				   <form:errors path="memberid" style="color:purple;"></form:errors>
+					<br>
+		Member Name: <form:input type="text" path="membername"/>
+					 <form:errors path="membername" style="color:purple;"></form:errors>
+					 <br>
 		Email: <form:input type="email" path="email" onblur="checkEmail()"/>
 				<span id="emailerror" style="color:red;"></span>
 		<br>
