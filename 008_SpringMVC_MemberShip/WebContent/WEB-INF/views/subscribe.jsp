@@ -22,7 +22,7 @@
 	<br>
 	<h3>Welcome to Subscribe</h3>
 	
-	<form:form action="subscribeServices" method="post" modelAttribute="member">
+	<form:form action="subscribeServices" method="post" modelAttribute="memberform">
 		Member ID: <form:input type="text" path="memberid" /><br>
 		Member Name: <form:input type="text" path="membername"/><br>
 		Email: <form:input type="email" path="email" /><br>

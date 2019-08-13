@@ -1,6 +1,8 @@
 package com.cts.memberservice;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.stereotype.Controller;
@@ -30,19 +32,19 @@ public class MembershipController {
 	@RequestMapping("/subscribe")
 	public ModelAndView openSubscribePage() {
 		ModelAndView mv = new ModelAndView();
-		Map<String , String> services = new HashMap<String, String>();
-		services.put("premiumduereminder", "Premium Due Reminder");
-		services.put("paymentduenotification", "Payment Due Notification");
-		services.put("policychanges", "Policy Changes");
+		List services = new ArrayList();
+		services.add("Premium Due Reminder");
+		services.add("Payment Due Notification");
+		services.add("Policy Changes");
 		mv.addObject("premiumservices", services);
-		mv.addObject("member", new Member());
+		mv.addObject("memberform", new Member());
 		mv.setViewName("subscribe");
 		return mv;
 		
 	}
 	
 	@RequestMapping( value = "/subscribeServices", method = RequestMethod.POST)
-	public ModelAndView subscribeServices(@ModelAttribute Member member) {
+	public ModelAndView subscribeServices(@ModelAttribute("memberform") Member member) {
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("name", member.getMembername());
 		mv.setViewName("success");
