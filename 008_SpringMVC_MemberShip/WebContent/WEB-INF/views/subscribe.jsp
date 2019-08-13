@@ -4,7 +4,12 @@
 <html>
 <head>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <meta charset="ISO-8859-1">
+
+<spring:url value="/resources/validation.js" var="pagejs"></spring:url>
+<script type="text/javascript" src="${pagejs}"></script>
+
 <title>Subscribe</title>
 </head>
 <body>
@@ -22,10 +27,13 @@
 	<br>
 	<h3>Welcome to Subscribe</h3>
 	
-	<form:form action="subscribeServices" method="post" modelAttribute="memberform">
+	<form:form action="subscribeServices" method="post" modelAttribute="memberform" id="myform">
 		Member ID: <form:input type="text" path="memberid" /><br>
 		Member Name: <form:input type="text" path="membername"/><br>
-		Email: <form:input type="email" path="email" /><br>
+					
+		Email: <form:input type="email" path="email" onblur="checkEmail()"/>
+				<span id="emailerror" style="color:red;"></span>
+		<br>
 		Services: <form:select path="services">
 					<form:option value="-" label="Select your service...."></form:option>
 					<form:options items="${premiumservices}"/>
@@ -36,7 +44,7 @@
 		
 		<br>
 		<br>
-		<input type="submit" value="Submit">
+		<input type="submit" value="Submit" >
 	</form:form>
 
 

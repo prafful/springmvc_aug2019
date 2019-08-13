@@ -1,10 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<html>
 <head>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Benefits</title>
+<spring:url value="/resources/main.css" var="pagecss"></spring:url>
+<link href="${pagecss}" rel="stylesheet" />
 </head>
 <body>
 <h1>

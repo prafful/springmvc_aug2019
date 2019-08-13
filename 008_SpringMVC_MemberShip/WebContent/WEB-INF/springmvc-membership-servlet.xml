@@ -31,5 +31,7 @@
 		
 		<bean id="messageSource"
 				class="org.springframework.context.support.ReloadableResourceBundleMessageSource"></bean>
+				
+		<mvc:resources location="/resources/" mapping="/resources/**" cache-period="6000"></mvc:resources>		
         
      </beans>   
