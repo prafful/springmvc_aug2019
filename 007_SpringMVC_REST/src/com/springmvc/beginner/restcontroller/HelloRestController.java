@@ -28,7 +28,6 @@ public class HelloRestController {
 		
 	}
 	
-	
 	@RequestMapping(value = "/all", method = RequestMethod.GET ,produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
 	public List getAllFriendsArray() {
@@ -41,7 +40,6 @@ public class HelloRestController {
 		return friends;
 	}
 
-	
 	@RequestMapping(value = "/friends/all", 
 					method = RequestMethod.GET ,
 					produces = MediaType.APPLICATION_JSON_VALUE)
